@@ -1,10 +1,8 @@
 package com.people.app.feature.people.entities;
 
 import com.people.app.feature.people.enums.Gender;
-import io.hypersistence.utils.hibernate.type.json.JsonType;
 import jakarta.persistence.*;
 import lombok.*;
-import org.hibernate.annotations.Type;
 
 import java.util.Map;
 import java.util.UUID;
@@ -34,6 +32,9 @@ public abstract class Person {
     @Enumerated(EnumType.STRING)
     @Column(name = "gender")
     private Gender gender;
+
+    @Version
+    private Long version;
 
 //    @Type(JsonType.class)
 //    @Column(columnDefinition = "jsonb")

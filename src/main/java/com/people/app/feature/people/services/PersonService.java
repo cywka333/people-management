@@ -7,6 +7,7 @@ import com.people.app.feature.people.filter.PersonFilter;
 import com.people.app.feature.people.repositories.PersonRepository;
 import com.people.app.feature.people.types.PersonType;
 import com.people.app.feature.people.types.PersonTypeRegistry;
+import jakarta.persistence.EntityNotFoundException;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.domain.Specification;
@@ -14,6 +15,7 @@ import org.springframework.stereotype.Service;
 
 import javax.naming.directory.InvalidAttributesException;
 import java.util.List;
+import java.util.UUID;
 
 @Service
 public class PersonService {
@@ -59,5 +61,15 @@ public class PersonService {
                 .findFirst()
                 .map(PersonFactory::createPerson)
                 .orElseThrow(() -> new IllegalArgumentException("Unsupported person type: " + type));
+    }
+
+    public Person editPerson(UUID id, PersonDTO personDTO){
+        Person existingPerson = personRepository.findById(id)
+                .orElseThrow(() -> new EntityNotFoundException("No person with ID found:" + id));
+        existingPerson.setName(personDTO.getName());
+        existingPerson.setGender(personDTO.getGender());
+        existingPerson.setHeight(personDTO.getHeight());
+
+        return personRepository.save(existingPerson);
     }
 }
