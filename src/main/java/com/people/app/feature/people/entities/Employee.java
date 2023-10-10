@@ -4,6 +4,8 @@ import jakarta.persistence.*;
 import lombok.*;
 
 import java.time.LocalDate;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 @Table(name = "employees")
@@ -14,8 +16,10 @@ import java.time.LocalDate;
 @AllArgsConstructor
 public class Employee extends Person {
 
-    @Temporal(TemporalType.DATE)
     @Column(name = "employment_date")
     private LocalDate employmentStartDate;
+
+    @OneToMany(mappedBy = "employee", cascade = CascadeType.ALL)
+    private List<EmployeePosition> employeePositions = new ArrayList<>();
 
 }
