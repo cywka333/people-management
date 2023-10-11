@@ -26,6 +26,7 @@ dependencies {
 	implementation("org.springframework.boot:spring-boot-starter-web")
 	implementation("javax.validation:validation-api:2.0.1.Final")
 	implementation("io.hypersistence:hypersistence-utils-hibernate-62:3.5.3")
+	implementation("org.apache.commons:commons-csv:1.10.0")
 	compileOnly("org.projectlombok:lombok")
 	runtimeOnly("org.postgresql:postgresql")
 	annotationProcessor("org.projectlombok:lombok")

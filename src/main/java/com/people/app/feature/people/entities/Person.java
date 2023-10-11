@@ -4,7 +4,6 @@ import com.people.app.feature.people.enums.Gender;
 import jakarta.persistence.*;
 import lombok.*;
 
-import java.util.Map;
 import java.util.UUID;
 
 @Entity
@@ -35,9 +34,5 @@ public abstract class Person {
 
     @Version
     private Long version;
-
-//    @Type(JsonType.class)
-//    @Column(columnDefinition = "jsonb")
-//    private Map<String, Object> attributes;
 
 }

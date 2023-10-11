@@ -12,7 +12,7 @@ public class PensionerFactory implements PersonFactory{
     }
 
     @Override
-    public Person createPerson() {
+    public Person createSpecificPersonType() {
         return new Pensioner();
     }
 }

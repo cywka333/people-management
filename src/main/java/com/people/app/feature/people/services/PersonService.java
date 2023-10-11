@@ -50,7 +50,6 @@ public class PersonService {
         person.setName(dto.getName());
         person.setHeight(dto.getHeight());
         person.setGender(dto.getGender());
-//        person.setAttributes(dto.getAttributes());
 
         return personRepository.save(person);
     }
@@ -59,7 +58,7 @@ public class PersonService {
         return personFactories.stream()
                 .filter(factory -> factory.supports(type))
                 .findFirst()
-                .map(PersonFactory::createPerson)
+                .map(PersonFactory::createSpecificPersonType)
                 .orElseThrow(() -> new IllegalArgumentException("Unsupported person type: " + type));
     }
 
