@@ -24,6 +24,7 @@ repositories {
 dependencies {
 	implementation("org.springframework.boot:spring-boot-starter-data-jpa")
 	implementation("org.springframework.boot:spring-boot-starter-web")
+	implementation("org.springframework.boot:spring-boot-starter-security")
 	implementation("javax.validation:validation-api:2.0.1.Final")
 	implementation("io.hypersistence:hypersistence-utils-hibernate-62:3.5.3")
 	implementation("org.apache.commons:commons-csv:1.10.0")
@@ -31,6 +32,7 @@ dependencies {
 	runtimeOnly("org.postgresql:postgresql")
 	annotationProcessor("org.projectlombok:lombok")
 	testImplementation("org.springframework.boot:spring-boot-starter-test")
+	testImplementation("org.springframework.security:spring-security-test")
 }
 
 tasks.withType<Test> {
