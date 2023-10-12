@@ -17,12 +17,12 @@ public class PositionController {
     }
 
     @PostMapping
-    public PositionDTO createPosition(@RequestBody PositionDTO positionDTO){
+    public PositionDTO createPosition(@RequestBody PositionDTO positionDTO) {
         return positionService.createPosition(positionDTO);
     }
 
     @GetMapping
-    public List<PositionDTO> getAllPositions(){
+    public List<PositionDTO> getAllPositions() {
         return positionService.getAllPositions();
     }
 }

@@ -6,6 +6,7 @@ import org.springframework.stereotype.Repository;
 
 import java.util.Optional;
 import java.util.UUID;
+
 @Repository
 public interface PensionerRepository extends JpaRepository<Pensioner, UUID> {
     Optional<Pensioner> findByUuid(UUID id);

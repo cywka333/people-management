@@ -25,12 +25,12 @@ public class EmployeePositionService {
         this.positionRepository = positionRepository;
     }
 
-    public EmployeePositionDTO assignPositionToEmployee(EmployeePositionDTO dto){
+    public EmployeePositionDTO assignPositionToEmployee(EmployeePositionDTO dto) {
         List<EmployeePosition> overlappingPositions = employeePositionRepository.findOverlappingPositions(dto.getEmployeeUuid(), dto.getStartDate(), dto.getEndDate());
-        if(!overlappingPositions.isEmpty()){
+        if (!overlappingPositions.isEmpty()) {
             throw new IllegalArgumentException("The provided date range overlaps with an existing position.");
         }
-        EmployeePosition position  = new EmployeePosition();
+        EmployeePosition position = new EmployeePosition();
         position.setStartDate(dto.getStartDate());
         position.setEndDate(dto.getEndDate());
         position.setSalary(dto.getSalary());

@@ -30,7 +30,7 @@ public class SecurityConfiguration {
                 .authorizeHttpRequests(
                         authorizeHttpRequests ->
                                 authorizeHttpRequests
-                                        .requestMatchers(antMatcher(HttpMethod.OPTIONS,"/**") )
+                                        .requestMatchers(antMatcher(HttpMethod.OPTIONS, "/**"))
                                         .permitAll()
                                         .requestMatchers(antMatcher("/api/v1/auth/login"))
                                         .permitAll()

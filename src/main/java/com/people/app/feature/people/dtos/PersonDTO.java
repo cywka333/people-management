@@ -23,5 +23,4 @@ public class PersonDTO {
     @NotBlank
     private String type;
 
-//    private Map<String, Object> attributes;
 }

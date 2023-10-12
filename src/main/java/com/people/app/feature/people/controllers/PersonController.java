@@ -10,6 +10,7 @@ import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.server.ResponseStatusException;
 
@@ -34,15 +35,17 @@ public class PersonController {
         return personService.search(criteria, pageable);
     }
 
+    @PreAuthorize("hasRole('ADMIN')")
     @PostMapping("/add")
     public ResponseEntity<Person> createPerson(@RequestBody PersonDTO personDTO) throws InvalidAttributesException {
         Person person = personService.savePerson(personDTO);
         return new ResponseEntity<>(person, HttpStatus.CREATED);
     }
 
+    @PreAuthorize("hasRole('ADMIN')")
     @PutMapping("/edit/{id}")
-    public ResponseEntity<Person> editPerson(@PathVariable UUID id, @RequestBody PersonDTO personDTO){
-        try{
+    public ResponseEntity<Person> editPerson(@PathVariable UUID id, @RequestBody PersonDTO personDTO) {
+        try {
             Person updatedPerson = personService.editPerson(id, personDTO);
             return new ResponseEntity<>(updatedPerson, HttpStatus.OK);
         } catch (OptimisticLockingFailureException e) {

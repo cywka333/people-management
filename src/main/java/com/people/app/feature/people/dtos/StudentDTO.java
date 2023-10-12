@@ -8,6 +8,7 @@ import lombok.Setter;
 public class StudentDTO {
 
     private String universityName;
+
     private double scholarship;
 
 }

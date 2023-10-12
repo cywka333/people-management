@@ -13,7 +13,7 @@ import lombok.*;
 @ToString
 @NoArgsConstructor
 @AllArgsConstructor
-public class Pensioner extends Person  {
+public class Pensioner extends Person {
 
     @Column(name = "pension")
     private double pension;

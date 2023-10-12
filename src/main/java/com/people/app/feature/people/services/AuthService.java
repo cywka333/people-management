@@ -23,10 +23,10 @@ public class AuthService {
         this.passwordEncoder = passwordEncoder;
     }
 
-    public AuthResponse login(AuthenticationRequest authenticationRequest){
+    public AuthResponse login(AuthenticationRequest authenticationRequest) {
         Optional<Person> response = this.personRepository.findUserByUsername(
                 authenticationRequest.username());
-        if(response.isPresent() && passwordEncoder.matches(authenticationRequest.password(), response.get().getPassword())){
+        if (response.isPresent() && passwordEncoder.matches(authenticationRequest.password(), response.get().getPassword())) {
             return new AuthResponse(authenticationRequest.username());
         }
         throw new ResponseStatusException(HttpStatusCode.valueOf(401));

@@ -8,6 +8,7 @@ public interface PersonType {
     boolean supports(String type);
 
     void savePerson(Person person);
+
     void mapSpecificFields(Person person, CSVRecord record);
 
 }

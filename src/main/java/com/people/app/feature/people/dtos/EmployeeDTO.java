@@ -8,7 +8,7 @@ import java.util.List;
 
 @Getter
 @Setter
-public class EmployeeDTO extends PersonDTO{
+public class EmployeeDTO extends PersonDTO {
 
     private LocalDate employmentStartDate;
     private List<EmployeePositionDTO> employeePositions;

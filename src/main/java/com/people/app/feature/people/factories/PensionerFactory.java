@@ -5,7 +5,7 @@ import com.people.app.feature.people.entities.Person;
 import org.springframework.stereotype.Service;
 
 @Service
-public class PensionerFactory implements PersonFactory{
+public class PensionerFactory implements PersonFactory {
     @Override
     public boolean supports(String type) {
         return "pensioner".equals(type);

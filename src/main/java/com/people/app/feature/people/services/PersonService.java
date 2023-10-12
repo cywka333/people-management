@@ -62,7 +62,7 @@ public class PersonService {
                 .orElseThrow(() -> new IllegalArgumentException("Unsupported person type: " + type));
     }
 
-    public Person editPerson(UUID id, PersonDTO personDTO){
+    public Person editPerson(UUID id, PersonDTO personDTO) {
         Person existingPerson = personRepository.findById(id)
                 .orElseThrow(() -> new EntityNotFoundException("No person with ID found:" + id));
         existingPerson.setName(personDTO.getName());

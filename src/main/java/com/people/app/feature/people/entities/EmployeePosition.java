@@ -2,6 +2,7 @@ package com.people.app.feature.people.entities;
 
 import jakarta.persistence.*;
 import lombok.*;
+
 import java.math.BigDecimal;
 import java.time.LocalDate;
 
