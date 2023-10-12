@@ -1,6 +1,5 @@
 package com.people.app.feature.people.configuration;
 
-import com.people.app.feature.people.enums.Role;
 import lombok.RequiredArgsConstructor;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -10,8 +9,6 @@ import org.springframework.security.config.annotation.method.configuration.Enabl
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configurers.AbstractHttpConfigurer;
-import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
-import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.SecurityFilterChain;
 
 import static org.springframework.security.web.util.matcher.AntPathRequestMatcher.antMatcher;
@@ -33,6 +30,10 @@ public class SecurityConfiguration {
                                         .requestMatchers(antMatcher(HttpMethod.OPTIONS, "/**"))
                                         .permitAll()
                                         .requestMatchers(antMatcher("/api/v1/auth/login"))
+                                        .permitAll()
+                                        .requestMatchers(antMatcher(HttpMethod.POST, "/api/people/search"))
+                                        .permitAll()
+                                        .requestMatchers(antMatcher(HttpMethod.POST, "/api/positions"))
                                         .permitAll()
                                         .requestMatchers(HttpMethod.POST, "/api/people/add").hasRole("ADMIN")
                                         .requestMatchers(HttpMethod.PUT, "/api/people/edit/**").hasRole("ADMIN")
