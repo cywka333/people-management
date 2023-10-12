@@ -4,7 +4,6 @@ import com.people.app.feature.people.dtos.PersonDTO;
 import com.people.app.feature.people.entities.Person;
 import com.people.app.feature.people.filter.PersonFilter;
 import com.people.app.feature.people.services.PersonService;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.OptimisticLockingFailureException;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
@@ -22,7 +21,6 @@ import java.util.UUID;
 public class PersonController {
     private final PersonService personService;
 
-    @Autowired
     public PersonController(PersonService personService) {
         this.personService = personService;
     }
